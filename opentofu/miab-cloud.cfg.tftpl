@@ -1,0 +1,15 @@
+#cloud-config
+# https://cloudinit.readthedocs.io/en/latest/topics/modules.html
+locale: de_DE
+timezone: Europe/Berlin
+
+runcmd:
+  - export NONINTERACTIVE=1
+  - export PUBLIC_IP=auto
+  - export PUBLIC_IPV6=auto
+  - export PRIMARY_HOSTNAME='${TERRAFORM_TEMPLATE_BOX_PRIMARY_HOSTNAME}'
+  - export EMAIL_ADDR='${TERRAFORM_TEMPLATE_FIRST_EMAIL_ADDRESS}'
+  - export EMAIL_PW='${TERRAFORM_TEMPLATE_FIRST_EMAIL_PASSWORD}'
+  - curl -s https://mailinabox.email/setup.sh | sudo -E bash
+
+final_message: 'Done :)'
