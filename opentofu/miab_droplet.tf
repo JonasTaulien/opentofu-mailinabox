@@ -60,5 +60,9 @@ resource "digitalocean_project" "miab_project" {
 
 output "miab_droplet_ssh_instructions" {
   value       = "ssh root@${digitalocean_droplet.miab_server.ipv4_address}"
-  description = "SSH into the created droplet"
+  description = "SSH into the created droplet (you have to wait ~15s before this will work)"
+}
+
+output "miab_first_admin_user_email_address" {
+  value = local.miab_first_admin_user_email_address
 }
