@@ -1,0 +1,11 @@
+aws_region = ""
+aws_access_key = ""
+aws_secret_key = ""
+digital_ocean_token = ""
+digital_ocean_ssh_key_pub_file_path = ""
+miab_first_admin_user_name = ""
+miab_first_admin_user_password = ""
+miab_domain = ""
+miab_droplet_region = ""
+// You are allowed to change this to a size with the same or more disk space
+miab_droplet_size = ""

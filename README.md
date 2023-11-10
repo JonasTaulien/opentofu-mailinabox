@@ -6,12 +6,24 @@ If you follow these instructions, it will
 2. Create a S3 Bucket for storing the Backups
 3. Install Mail-In-A-Box on the Droplet
 
-After following teh instructions, you have your own mailserver and cloud :)
+After following the instructions, you have your own mailserver and cloud with automatic backups to the S3 Bucket :)
+
+## For who?
+This is not a "one-button-click" solution for setting up your Mail-In-A-Box
+* You should have an idea what a Mail-In-A-Box is. If not, check out the official website: [mailinabox.email](https://mailinabox.email/)
+* You should be familiar with the concept of infrastructure as code, more specifically you should know what
+  OpenTofu/terraform is
+* You should have an idea, what a S3 Bucket is and a Digital Ocean Droplet
+* You must have a Digital Ocean account
+* You must have an AWS account
+
+I created this repo to create a new Mail-In-A-Box, because my old one was still running Ubuntu 18.
 
 ## Instructions
 1. Initialize opentofu by running `tofu init`
-2. Add `terraform.tfvars` and set required variables (this file gets git-ignored, so you do not accidentally commit
-   secrets)
+2. Copy `terraform.tfvars.template` to `terraform.tfvars` and set required variables (this file gets git-ignored, so
+   you do not accidentally commit secrets)
+   * the scripts located at `scripts/` can help you find some of the values you need
 3. Execute `tofu plan` and check if you agree what it wants to do
 4. Execute `tofu apply` to set everything up
 5. Wait 15 seconds and use the output of `tofu output miab_droplet_ssh_instructions` to `ssh` into the droplet
