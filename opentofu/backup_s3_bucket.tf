@@ -54,3 +54,25 @@ resource "aws_s3_object" "backups_directory" {
   bucket = aws_s3_bucket.backup_bucket.bucket
   key = "backups/"
 }
+
+output "backup_s3_bucket_region" {
+  value = var.aws_region
+}
+
+output "backup_s3_bucket_host" {
+  value = "s3.${aws_s3_bucket.backup_bucket.region}.amazonaws.com"
+}
+
+output "backup_s3_bucket_path" {
+  value = "${aws_s3_object.backups_directory.bucket}/${aws_s3_object.backups_directory.key}"
+}
+
+output "backup_s3_bucket_access-key" {
+  value = aws_iam_access_key.backup_user_access_key.id
+  sensitive = true
+}
+
+output "backup_s3_bucket_secret-key" {
+  value = aws_iam_access_key.backup_user_access_key.secret
+  sensitive = true
+}
