@@ -8,7 +8,7 @@ If you follow these instructions, it will
 
 After following the instructions, you have your own mailserver and cloud with automatic backups to the S3 Bucket :)
 
-## For who?
+## Who is this for?
 This is not a "one-button-click" solution for setting up your Mail-In-A-Box
 * You should have an idea what a Mail-In-A-Box is. If not, check out the official website: [mailinabox.email](https://mailinabox.email/)
 * You should be familiar with the concept of infrastructure as code, more specifically you should know what
@@ -53,7 +53,7 @@ I created this repo to create a new Mail-In-A-Box, because my old one was still 
     status of your box by navigating to `System > Status Checks`
 
 ## TODO
-* Automatically set Backup to S3
+* Automatically configure Backup to S3
 * Let user configure timezone and locale in `tfvars`
 * Set correct text encoding, so that they are no issues with `f�r` or `zus�tzliche`
 
